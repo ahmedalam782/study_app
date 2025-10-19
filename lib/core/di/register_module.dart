@@ -1,0 +1,46 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:injectable/injectable.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../api/app_interceptor.dart';
+import '../api/end_points.dart';
+
+@module
+abstract class CoreInjectableModule {
+  @preResolve
+  Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
+
+  static AndroidOptions _getAndroidOptions() =>
+      const AndroidOptions(encryptedSharedPreferences: true);
+  @lazySingleton
+  FlutterSecureStorage get secureStorage =>
+      FlutterSecureStorage(aOptions: _getAndroidOptions());
+
+  @singleton
+  Dio dio() {
+    final dio = Dio(
+      BaseOptions(
+        baseUrl: EndPoints.baseUrl,
+        connectTimeout: const Duration(seconds: 45),
+        receiveTimeout: const Duration(seconds: 45),
+      ),
+    );
+    dio.interceptors.add(AppInterceptors(dio: dio, fss: secureStorage));
+    dio.interceptors.addAll([
+      if (kDebugMode)
+        PrettyDioLogger(
+          request: true,
+          requestBody: true,
+          responseHeader: true,
+          responseBody: true,
+          error: true,
+          compact: true,
+          requestHeader: true,
+        ),
+    ]);
+    return dio;
+  }
+}
