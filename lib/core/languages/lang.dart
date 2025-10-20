@@ -5,7 +5,7 @@ enum LanguageType { arabic, english }
 const String arabic = 'ar';
 const String english = 'en';
 
-const String assetsLocalization = 'lib/core/localization';
+const String assetsLocalization = 'assets/localization';
 
 const Locale arabicLocale = Locale("ar", "EG");
 const Locale englishLocale = Locale("en", "US");

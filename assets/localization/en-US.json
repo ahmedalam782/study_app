@@ -1,0 +1,69 @@
+{
+    "error_api_failure": {
+        "connectionError": "Failed to connect to the server",
+        "connectionTimeout": "Server connection timed out",
+        "cancelled": "Request cancelled",
+        "unknown": "Failed to connect to the server due to internet connectivity issues",
+        "receiveTimeout": "Receiving data from the server timed out",
+        "sendTimeout": "Sending data to the server timed out",
+        "message_unknown": "An unexpected error occurred"
+    },
+    "custom_widget": {
+        "loading": "Loading...",
+        "upload_image": "Upload image",
+        "try_again": "Try again",
+        "done": "Done",
+        "cancel": "Cancel",
+        "choose_image": "Choose image",
+        "drag_and_drop": "Click here to select an image",
+        "rotateLeftTooltip": "Rotate left",
+        "rotateRightTooltip": "Rotate right",
+        "save": "Save",
+        "search": "Search"
+    },
+    "date_time": {
+        "from": "From",
+        "hour": "Hour",
+        "hours": "Hours",
+        "day": "Day",
+        "days": "Days",
+        "week": "Week",
+        "month": "Month",
+        "year": "Year",
+        "minutes": "Minutes",
+        "minute": "Minute",
+        "am": "AM",
+        "pm": "PM",
+        "just_now": "Just now"
+    },
+    "failures": {
+        "server_failure": "Failed to connect to server",
+        "cache_failure": "Failed to store data"
+    },
+    "validations": {
+        "password_required": "Password is required",
+        "set_password_1_condition": "At least one lowercase letter",
+        "set_password_2_condition": "At least one uppercase letter",
+        "set_password_3_condition": "At least one number",
+        "set_password_4_condition": "At least one special character",
+        "set_password_5_condition": "6-30 characters",
+        "set_password_1_condition_error": "Password must contain at least one lowercase letter",
+        "set_password_2_condition_error": "Password must contain at least one uppercase letter",
+        "set_password_3_condition_error": "Password must contain at least one number",
+        "set_password_4_condition_error": "Password must contain at least one special character",
+        "set_password_5_condition_error": "Password must be between 6 and 30 characters",
+        "confirm_password": "Please enter a valid password",
+        "confirm_password_invalid": "The confirmed password does not match the password",
+        "phone_required": "Phone number is required",
+        "phone_invalid": "Please enter a valid phone number",
+        "name_required": "Please enter your full name",
+        "pin_required": "Please enter your PIN",
+        "pin_invalid": "Please enter a 4-digit PIN",
+        "profile_image": "Please upload your profile image",
+        "arabic_name": " Please enter your name in Arabic",
+        "english_name": " Please enter your name in English",
+        "email_required": "Please enter your email",
+        "email_invalid": "Please enter a valid email address",
+        "username_required": "Please enter your username"
+    }
+}

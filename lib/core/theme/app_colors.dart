@@ -30,4 +30,19 @@ abstract class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
   static const Color transparent = Colors.transparent;
+  static const Color gray71 = Color(0xff71717A);
+  static const Color gray52 = Color(0xff52525B);
+  static const Color grayD9 = Color(0xFFD9D9D9);
+  static const Color grayE4 = Color(0xffE4E4E7);
+  static const Color gray92 = Color(0xff929292);
+  static const Color grayC3 = Color(0xffC3C3C3);
+  static const Color grayFD = Color(0xffFDFDFD);
+  static const Color grayB6 = Color(0xffB6B6BB);
+
+  // gradients
+  static const LinearGradient primaryGradient = LinearGradient(
+    colors: [Color(0xFF1976D2), Color(0xFF26A69A)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
 }

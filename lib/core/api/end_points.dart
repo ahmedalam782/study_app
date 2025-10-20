@@ -1,5 +1,6 @@
 class EndPoints {
   static const String baseUrl = "https://api.example.com/";
+  static const String baseImageUrl = "https://api.example.com/images/";
   static const String refreshToken = "/auth/refresh-token";
 }
 
