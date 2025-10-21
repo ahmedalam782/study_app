@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:va_note/core/theme/app_colors.dart';
+import 'package:study_app/core/theme/app_colors.dart';
 
 class CustomSwitcher extends StatelessWidget {
   final bool value;
@@ -17,8 +17,7 @@ class CustomSwitcher extends StatelessWidget {
           child: CupertinoSwitch(
             value: value,
             onChanged: onChanged ?? (value) {},
-
-            activeTrackColor: AppColors.purple97,
+            activeTrackColor: AppColors.primaryDark,
           ),
         ),
       ),

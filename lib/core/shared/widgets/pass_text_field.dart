@@ -139,7 +139,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
         if (widget.title != null && widget.title!.isNotEmpty) ...[
           Text(
             widget.title ?? "",
-            style: Styles.light14.copyWith(color: AppColors.black27),
+            style: Styles.light(context, 14).copyWith(color: AppColors.black),
           ),
           SizedBox(height: 6),
         ],
@@ -168,11 +168,11 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
           maxLines: 1,
           textAlign: widget.textAlign ?? TextAlign.start,
           keyboardType: TextInputType.visiblePassword,
-          cursorColor: AppColors.primerColor,
-          style: widget.textStyle ?? Styles.regular16,
+          cursorColor: AppColors.primaryLight,
+          style: widget.textStyle ?? Styles.regular(context, 16),
           onFieldSubmitted: widget.onFieldSubmitted,
           decoration: InputDecoration(
-            hoverColor: AppColors.purple97B10,
+            hoverColor: AppColors.primaryLight,
             fillColor: widget.fillColor,
             filled: widget.enableFill,
             isDense: widget.isDense,
@@ -180,7 +180,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
             hintText: widget.hintText,
             hintStyle:
                 widget.hintStyle ??
-                Styles.light14.copyWith(color: AppColors.gray71),
+                Styles.light(context, 14).copyWith(color: AppColors.gray71),
             contentPadding:
                 widget.contentPadding ??
                 REdgeInsetsDirectional.only(
@@ -198,7 +198,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
             prefixIcon:
                 widget.prefixWidget ??
                 SvgPicture.asset(
-                  AppIcons.coreCommonAssetsIconsLock,
+                  AppIcons.iconsLock,
                   colorFilter: ColorFilter.mode(
                     AppColors.gray71,
                     BlendMode.srcIn,
@@ -214,7 +214,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
             errorBorder:
                 widget.enabledBorder ??
                 customOutLineBorders(
-                  borderColor: AppColors.originalRed,
+                  borderColor: AppColors.errorLight,
                 ),
             disabledBorder:
                 widget.disabledBorder ?? customOutLineBorders(),
@@ -225,7 +225,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                 widget.focusedBorder ??
                 customOutLineBorders(
                   borderColor: widget.enableFocusBorder
-                      ? AppColors.primerColor
+                      ? AppColors.primaryLight
                       : null,
                   borderWidth: 1.5,
                 ),
@@ -284,9 +284,9 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                               child: SvgPicture.asset(
                                 passwordConditionsState[index]
                                     ? AppIcons
-                                          .coreCommonAssetsIconsCheckCircle2
+                                          .iconsCheckCircle2
                                     : AppIcons
-                                          .coreCommonAssetsIconsCloseCircle,
+                                          .iconsCloseCircle,
                                 key: ValueKey<bool>(
                                   passwordConditionsState[index],
                                 ),
@@ -302,10 +302,10 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                                 ),
                                 curve: Curves.easeInOut,
                                 style: !passwordConditionsState[index]
-                                    ? Styles.regular14.copyWith(
-                                        color: AppColors.originalRed,
+                                    ? Styles.regular(context, 14).copyWith(
+                                        color: AppColors.errorLight,
                                       )
-                                    : Styles.regular14,
+                                    : Styles.regular(context, 14),
                                 child: Text(
                                   passwordConditions[index].tr(),
                                 ),
@@ -353,9 +353,9 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                               child: SvgPicture.asset(
                                 passwordConditionsState[index + 3]
                                     ? AppIcons
-                                          .coreCommonAssetsIconsCheckCircle2
+                                          .iconsCheckCircle2
                                     : AppIcons
-                                          .coreCommonAssetsIconsCloseCircle,
+                                          .iconsCloseCircle,
                                 key: ValueKey<bool>(
                                   passwordConditionsState[index + 3],
                                 ),
@@ -371,10 +371,10 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                               curve: Curves.easeInOut,
                               style:
                                   !passwordConditionsState[index + 3]
-                                  ? Styles.regular14.copyWith(
-                                      color: AppColors.originalRed,
+                                  ? Styles.regular(context, 14).copyWith(
+                                      color: AppColors.errorLight,
                                     )
-                                  : Styles.regular14,
+                                  : Styles.regular(context, 14),
                               child: Text(
                                 passwordConditions[index + 3].tr(),
                               ),
@@ -412,11 +412,11 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
         ),
         child: SvgPicture.asset(
           _isPasswordVisible
-              ? AppIcons.coreCommonAssetsIconsOpenEye
-              : AppIcons.coreCommonAssetsIconsCloseEye,
+              ? AppIcons.iconsOpenEye
+              : AppIcons.iconsCloseEye,
           key: ValueKey<bool>(_isPasswordVisible),
           colorFilter: ColorFilter.mode(
-            AppColors.gray3F,
+            AppColors.grayB6,
             BlendMode.srcIn,
           ),
         ),

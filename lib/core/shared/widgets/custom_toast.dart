@@ -25,7 +25,7 @@ class CustomToast {
   void showToast() {
     toastification.show(
       primaryColor: type == ToastificationType.success
-          ? AppColors.green17
+          ? AppColors.green4C
           : null,
       style: ToastificationStyle.fillColored,
       alignment: isWeb ? AlignmentDirectional.topEnd : Alignment.topCenter,
@@ -37,12 +37,12 @@ class CustomToast {
       context: context,
       title: Text(
         header ?? "",
-        style: Styles.medium16.copyWith(color: AppColors.originalWhite),
+        style: Styles.medium(context, 16).copyWith(color: AppColors.white),
       ),
       description: description != null
           ? Text(
               description!,
-              style: Styles.regular16.copyWith(color: AppColors.originalWhite),
+              style: Styles.regular(context, 16).copyWith(color: AppColors.white),
             )
           : null,
       autoCloseDuration: const Duration(seconds: 5),
@@ -57,7 +57,7 @@ class CustomToast {
     String? message,
   }) {
     toastification.show(
-      primaryColor: backgroundColor ?? AppColors.originalWhite,
+      primaryColor: backgroundColor ?? AppColors.white,
       style: ToastificationStyle.fillColored,
       alignment: isWeb ? AlignmentDirectional.topEnd : Alignment.topCenter,
       type: type,
@@ -78,7 +78,7 @@ class CustomToast {
                 decoration: BoxDecoration(
                   color:
                       (mainColor?.withValues(alpha: 0.1)) ??
-                      AppColors.black27.withValues(alpha: 0.1),
+                      AppColors.backgroundDark.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -87,7 +87,7 @@ class CustomToast {
                     width: 24,
                     height: 24,
                     colorFilter: ColorFilter.mode(
-                      mainColor ?? AppColors.black27,
+                      mainColor ?? AppColors.backgroundDark,
                       BlendMode.srcIn,
                     ),
                   ),
@@ -98,7 +98,7 @@ class CustomToast {
       description: Text(
         message ?? "",
         textAlign: TextAlign.center,
-        style: Styles.regular16,
+        style: Styles.regular(context, 16),
       ),
       autoCloseDuration: const Duration(seconds: 5),
     );

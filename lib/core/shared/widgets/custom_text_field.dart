@@ -110,7 +110,7 @@ class CustomTextFormField extends StatelessWidget {
         if (title != null && title!.isNotEmpty)
           Text(
             title ?? "",
-            style: Styles.light14.copyWith(color: AppColors.black27),
+            style: Styles.light(context, 14).copyWith(color: AppColors.backgroundDark),
           ),
         TextFormField(
           enabled: !isReadOnly,
@@ -142,8 +142,8 @@ class CustomTextFormField extends StatelessWidget {
               : textInputType == TextInputType.number
               ? [FilteringTextInputFormatter.allow(RegExp(r'[0-9]'))]
               : inputFormatters,
-          cursorColor: AppColors.originalBlack,
-          style: textStyle ?? Styles.regular16,
+          cursorColor: AppColors.black,
+          style: textStyle ?? Styles.regular(context, 16),
           onFieldSubmitted: onFieldSubmitted,
           decoration: InputDecoration(
             fillColor: !isReadOnly ? fillColor : AppColors.grayFD,
@@ -151,10 +151,10 @@ class CustomTextFormField extends StatelessWidget {
             isDense: isDense,
             hintText: hintText,
             hintTextDirection: textDirection,
-            hoverColor: AppColors.purple97B10,
+            hoverColor: AppColors.primaryDark,
             hintStyle:
                 hintStyle ??
-                Styles.light14.copyWith(
+                Styles.light(context, 14).copyWith(
                   color: !isReadOnly ? AppColors.gray71 : AppColors.grayB6,
                 ),
             contentPadding:
@@ -166,7 +166,7 @@ class CustomTextFormField extends StatelessWidget {
                   top: 10,
                 ),
             alignLabelWithHint: true,
-            errorStyle: Styles.regular12.copyWith(color: AppColors.originalRed),
+            errorStyle: Styles.regular(context, 12).copyWith(color: AppColors.errorLight),
             focusColor: Colors.black,
             suffixIcon: suffixWidget,
             suffixText: suffixText,
@@ -188,14 +188,14 @@ class CustomTextFormField extends StatelessWidget {
                 floatingLabelBehavior ?? FloatingLabelBehavior.auto,
             errorBorder:
                 enabledBorder ??
-                customOutLineBorders(borderColor: AppColors.originalRed),
+                customOutLineBorders(borderColor: AppColors.errorLight),
             disabledBorder: disabledBorder ?? customOutLineBorders(),
             border: border ?? customOutLineBorders(),
             enabledBorder: enabledBorder ?? customOutLineBorders(),
             focusedBorder:
                 focusedBorder ??
                 customOutLineBorders(
-                  borderColor: enableFocusBorder ? AppColors.primerColor : null,
+                  borderColor: enableFocusBorder ? AppColors.primaryLight : null,
                   borderWidth: 1.5,
                 ),
           ),

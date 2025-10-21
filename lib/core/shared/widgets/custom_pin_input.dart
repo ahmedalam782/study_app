@@ -36,7 +36,7 @@ class CustomPinInput extends StatelessWidget {
           width: 1.5,
           height: 25,
           decoration: const BoxDecoration(
-            color: AppColors.primerColor,
+            color: AppColors.primaryLight,
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(99999),
               top: Radius.circular(99999),
@@ -45,10 +45,10 @@ class CustomPinInput extends StatelessWidget {
         ),
         pinContentAlignment: Alignment.center,
         controller: controller,
-        defaultPinTheme: defaultPinTheme,
-        focusedPinTheme: focusedPinTheme,
-        submittedPinTheme: submittedPinTheme,
-        errorPinTheme: errorPinTheme,
+        defaultPinTheme: defaultPinTheme(context),
+        focusedPinTheme: focusedPinTheme(context),
+        submittedPinTheme: submittedPinTheme(context),
+        errorPinTheme: errorPinTheme(context),
         validator: validator,
         pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
         showCursor: true,
@@ -64,16 +64,19 @@ class CustomPinInput extends StatelessWidget {
     );
   }
 
-  static final PinTheme defaultPinTheme = PinTheme(
+  static PinTheme defaultPinTheme(BuildContext context) => PinTheme(
     width: 48,
     height: 48,
-    textStyle: Styles.semibold24.copyWith(color: AppColors.primerColor),
+    textStyle: Styles.semiBold(
+      context,
+      24,
+    ).copyWith(color: AppColors.primaryLight),
     decoration: BoxDecoration(
       color: AppColors.grayF4,
       borderRadius: BorderRadius.circular(8),
       boxShadow: [
         BoxShadow(
-          color: AppColors.originalBlack.withValues(alpha: 0.05),
+          color: AppColors.black.withValues(alpha: 0.05),
           blurRadius: 2,
           spreadRadius: 0,
           offset: const Offset(0, 1),
@@ -81,50 +84,53 @@ class CustomPinInput extends StatelessWidget {
       ],
     ),
   );
-  static final PinTheme focusedPinTheme = defaultPinTheme.copyWith(
-    decoration: BoxDecoration(
-      color: AppColors.purple97B10,
-      border: Border.all(color: AppColors.primerColor, width: 2),
-      borderRadius: BorderRadius.circular(8),
-      boxShadow: [
-        BoxShadow(
-          color: AppColors.originalBlack.withValues(alpha: 0.05),
-          blurRadius: 2,
-          spreadRadius: 0,
-          offset: const Offset(0, 1),
+  static PinTheme focusedPinTheme(BuildContext context) =>
+      defaultPinTheme(context).copyWith(
+        decoration: BoxDecoration(
+          color: AppColors.primaryLight,
+          border: Border.all(color: AppColors.primaryLight, width: 2),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.black.withValues(alpha: 0.05),
+              blurRadius: 2,
+              spreadRadius: 0,
+              offset: const Offset(0, 1),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
-  static final PinTheme submittedPinTheme = defaultPinTheme.copyWith(
-    decoration: BoxDecoration(
-      border: Border.all(color: AppColors.primerColor, width: 1),
-      color: AppColors.purple97B10,
+      );
+  static PinTheme submittedPinTheme(BuildContext context) =>
+      defaultPinTheme(context).copyWith(
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.primaryLight, width: 1),
+          color: AppColors.primaryLight,
 
-      borderRadius: BorderRadius.circular(8),
-      boxShadow: [
-        BoxShadow(
-          color: AppColors.originalBlack.withValues(alpha: 0.05),
-          blurRadius: 2,
-          spreadRadius: 0,
-          offset: const Offset(0, 1),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.black.withValues(alpha: 0.05),
+              blurRadius: 2,
+              spreadRadius: 0,
+              offset: const Offset(0, 1),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
-  static final PinTheme errorPinTheme = defaultPinTheme.copyWith(
-    decoration: BoxDecoration(
-      border: Border.all(color: AppColors.originalRed, width: 2),
-      color: AppColors.originalRed.withValues(alpha: 0.1),
-      borderRadius: BorderRadius.circular(8),
-      boxShadow: [
-        BoxShadow(
-          color: AppColors.originalBlack.withValues(alpha: 0.05),
-          blurRadius: 2,
-          spreadRadius: 0,
-          offset: const Offset(0, 1),
+      );
+  static PinTheme errorPinTheme(BuildContext context) =>
+      defaultPinTheme(context).copyWith(
+        decoration: BoxDecoration(
+          border: Border.all(color: AppColors.errorLight, width: 2),
+          color: AppColors.errorLight.withValues(alpha: 0.1),
+          borderRadius: BorderRadius.circular(8),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.black.withValues(alpha: 0.05),
+              blurRadius: 2,
+              spreadRadius: 0,
+              offset: const Offset(0, 1),
+            ),
+          ],
         ),
-      ],
-    ),
-  );
+      );
 }

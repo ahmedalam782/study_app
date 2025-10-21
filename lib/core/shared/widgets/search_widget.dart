@@ -1,8 +1,15 @@
 import 'dart:async';
 
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:study_app/core/helper/classes/debouncer.dart';
+import 'package:study_app/core/shared/widgets/custom_text_field.dart';
+import 'package:study_app/core/theme/app_icons.dart';
+import 'package:study_app/core/theme/styles.dart';
+import 'package:study_app/core/utils/constants/app_numbers.dart';
+import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
 import 'package:va_note/core/common/widgets/custom_button.dart';
 import 'package:va_note/core/common/widgets/custom_drop_button.dart';
 import 'package:va_note/core/common/widgets/custom_text_field.dart';
@@ -138,7 +145,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         : SizedBox.shrink(),
                   ),
                   if (convertToTabletMode)
-                    Text(widget.title, style: Styles.regular20),
+                    Text(widget.title, style: Styles.regular(context, 20)),
                   if (convertToTabletMode) Spacer(),
                   Flexible(
                     flex: convertToTabletMode ? 0 : 1,
@@ -148,7 +155,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                           : 354.w.clamp(200, 354),
                       child: CustomTextFormField(
                         hintText: _animatedHintText.isEmpty
-                            ? 'global.search_hint'.tr()
+                            ? LocaleKeys.global_search_hint.tr()
                             : _animatedHintText,
                         controller: _searchController,
                         onChanged: (value) {
@@ -158,9 +165,9 @@ class _SearchWidgetState extends State<SearchWidget> {
                         },
                         onFieldSubmitted: (value) =>
                             widget.onSearchChanged?.call(value),
-                        textStyle: Styles.light16,
+                        textStyle: Styles.light(context, 16),
                         prefixIcon:
-                            AppIcons.coreCommonAssetsIconsSearch,
+                            AppIcons.iconsSearch,
                       ),
                     ),
                   ),

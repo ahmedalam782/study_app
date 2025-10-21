@@ -225,6 +225,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.2"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: "567c64b3cb4cf82397aac55f4f0cbd3ca20d77c6c03bedbc4ceaddc08904aef7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.7"
   fake_async:
     dependency: transitive
     description:
@@ -421,6 +429,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  iconsax_flutter:
+    dependency: transitive
+    description:
+      name: iconsax_flutter
+      sha256: d14b4cec8586025ac15276bdd40f6eea308cb85748135965bb6255f14beb2564
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   injectable:
     dependency: "direct main"
     description:
@@ -629,6 +645,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
+  pausable_timer:
+    dependency: transitive
+    description:
+      name: pausable_timer
+      sha256: "6ef1a95441ec3439de6fb63f39a011b67e693198e7dae14e20675c3c00e86074"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0+3"
   petitparser:
     dependency: transitive
     description:
@@ -637,6 +661,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
+  pinput:
+    dependency: "direct main"
+    description:
+      name: pinput
+      sha256: c41f42ee301505ae2375ec32871c985d3717bf8aee845620465b286e0140aad2
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.2"
   platform:
     dependency: transitive
     description:
@@ -781,6 +813,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  shimmer:
+    dependency: "direct main"
+    description:
+      name: shimmer
+      sha256: "5f88c883a22e9f9f299e5ba0e4f7e6054857224976a5d9f839d4ebdc94a14ac9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -906,6 +946,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.6"
+  toastification:
+    dependency: "direct main"
+    description:
+      name: toastification
+      sha256: "69db2bff425b484007409650d8bcd5ed1ce2e9666293ece74dcd917dacf23112"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.3"
   typed_data:
     dependency: transitive
     description:
@@ -914,6 +962,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.0"
+  universal_platform:
+    dependency: transitive
+    description:
+      name: universal_platform
+      sha256: "64e16458a0ea9b99260ceb5467a214c1f298d647c659af1bff6d3bf82536b1ec"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   uuid:
     dependency: transitive
     description:

@@ -38,6 +38,8 @@ abstract class AppColors {
   static const Color grayC3 = Color(0xffC3C3C3);
   static const Color grayFD = Color(0xffFDFDFD);
   static const Color grayB6 = Color(0xffB6B6BB);
+  static const Color grayF4 = Color(0xffF4F4F5);
+  static const Color green4C = Color(0xFF4CAF50);
 
   // gradients
   static const LinearGradient primaryGradient = LinearGradient(

@@ -40,7 +40,7 @@ class CustomCheckListTile extends StatelessWidget {
                 alignment: titleAlignment,
                 child: Text(
                   title ?? "",
-                  style: Styles.regular14.copyWith(color: AppColors.gray71),
+                  style: Styles.regular(context, 16).copyWith(color: AppColors.gray71),
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class CustomCheckListTile extends StatelessWidget {
                     ? null
                     : Border.all(color: AppColors.gray71, width: 2),
 
-                gradient: value ? AppColors.secondGradient : null,
+                gradient: value ? AppColors.primaryGradient : null,
               ),
               child: Center(
                 child: AnimatedSwitcher(
@@ -65,7 +65,7 @@ class CustomCheckListTile extends StatelessWidget {
                       ScaleTransition(scale: animation, child: child),
                   child: value
                       ? SvgPicture.asset(
-                          AppIcons.coreCommonAssetsIconsCheckmark,
+                          AppIcons.iconsCheckmark,
                           key: ValueKey('selected'),
                           width: 14,
                           height: 14,

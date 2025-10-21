@@ -1,7 +1,7 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+import 'package:easy_localization/easy_localization.dart';
+import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/styles.dart';
 
@@ -63,9 +63,9 @@ class ResendTimerState extends State<ResendTimer> {
           : null,
       child: Text(
         _remainingSeconds > 0
-            ? 'custom_widget.resend'.tr(args: [_remainingSeconds.toString()])
-            : 'custom_widget.resend_title'.tr(),
-        style: Styles.light14.copyWith(color: AppColors.primerColor),
+            ? LocaleKeys.custom_widget_resend.tr(args: [_remainingSeconds.toString()])
+            : LocaleKeys.custom_widget_resend_title.tr(),
+        style: Styles.light(context, 14).copyWith(color: AppColors.primaryLight),
       ),
     );
   }

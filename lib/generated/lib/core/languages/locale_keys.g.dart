@@ -13,7 +13,11 @@ abstract class  LocaleKeys {
   static const error_api_failure = 'error_api_failure';
   static const custom_widget_loading = 'custom_widget.loading';
   static const custom_widget_upload_image = 'custom_widget.upload_image';
+  static const custom_widget_upload_video = 'custom_widget.upload_video';
+  static const custom_widget_resend = 'custom_widget.resend';
+  static const custom_widget_resend_title = 'custom_widget.resend_title';
   static const custom_widget_try_again = 'custom_widget.try_again';
+  static const custom_widget_unexpected_error = 'custom_widget.unexpected_error';
   static const custom_widget_done = 'custom_widget.done';
   static const custom_widget_cancel = 'custom_widget.cancel';
   static const custom_widget_choose_image = 'custom_widget.choose_image';
@@ -68,5 +72,18 @@ abstract class  LocaleKeys {
   static const validations_email_invalid = 'validations.email_invalid';
   static const validations_username_required = 'validations.username_required';
   static const validations = 'validations';
+  static const global_view_all = 'global.view_all';
+  static const global_search_hint = 'global.search_hint';
+  static const global_filter_hint = 'global.filter_hint';
+  static const global_all_status = 'global.all_status';
+  static const global_completed = 'global.completed';
+  static const global_verified = 'global.verified';
+  static const global_pending = 'global.pending';
+  static const global_canceled = 'global.canceled';
+  static const global_add = 'global.add';
+  static const global_edit = 'global.edit';
+  static const global_delete = 'global.delete';
+  static const global_continue = 'global.continue';
+  static const global = 'global';
 
 }

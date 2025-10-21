@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_images.dart';
@@ -34,8 +35,8 @@ class ErrorPage extends StatelessWidget {
               await onRefresh!();
             }
           },
-          color: AppColors.originalWhite,
-          backgroundColor: AppColors.primerColor,
+          color: AppColors.white,
+          backgroundColor: AppColors.primaryLight,
           child: SingleChildScrollView(
             physics: isScrollable
                 ? const AlwaysScrollableScrollPhysics(
@@ -48,16 +49,19 @@ class ErrorPage extends StatelessWidget {
                 SvgPicture.asset(
                   image ??
                       (isConnectionerror
-                          ? AppImages.coreCommonAssetsImagesConnectionError
-                          : AppImages.coreCommonAssetsImagesError),
+                          ? AppImages.imagesConnectionError
+                          : AppImages.imagesError),
                   width: width ?? 1.sw,
                 ),
                 Text(
                   message ??
                       (isConnectionerror
-                          ? "failures.offline_failure".tr()
-                          : "failures.unknown_failure".tr()),
-                  style: Styles.regular20.copyWith(color: AppColors.grayB6),
+                          ? LocaleKeys.error_api_failure_unknown.tr()
+                          : LocaleKeys.error_api_failure_unexpected_error.tr()),
+                  style: Styles.regular(
+                    context,
+                    20,
+                  ).copyWith(color: AppColors.grayB6),
                 ),
               ],
             ),

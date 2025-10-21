@@ -6,8 +6,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:study_app/core/helper/extensions/widgets_extensions.dart';
 import 'package:study_app/core/theme/app_icons.dart';
 import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
-import 'package:va_note/core/config/extensions/widgets_extensions.dart';
-import 'package:va_note/core/theme/app_icons.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/styles.dart';
 import '../../helper/phone_helper/phone_length_helper.dart';
@@ -188,13 +186,13 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
               ),
 
               errorBorder: customOutLineBorders(
-                borderColor: AppColors.originalRed,
+                borderColor: AppColors.errorLight,
               ),
               disabledBorder: customOutLineBorders(),
               border: customOutLineBorders(),
               enabledBorder: customOutLineBorders(),
               focusedBorder: customOutLineBorders(
-                borderColor: AppColors.primerColor,
+                borderColor: AppColors.primaryLight,
                 borderWidth: 1.5,
               ),
             ),

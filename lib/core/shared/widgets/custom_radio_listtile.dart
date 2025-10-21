@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:va_note/core/theme/app_colors.dart';
-import 'package:va_note/core/theme/styles.dart';
+import 'package:study_app/core/theme/app_colors.dart';
+import 'package:study_app/core/theme/styles.dart';
 
 class CustomRadioListtile<T> extends StatelessWidget {
   final T value;
@@ -31,8 +31,8 @@ class CustomRadioListtile<T> extends StatelessWidget {
       borderRadius: BorderRadius.circular(radius),
       child: InkWell(
         onTap: () => onChanged(value),
-        hoverColor: AppColors.primerColorB32,
-        splashColor: AppColors.primerColorB32.withValues(alpha: 0.5),
+        hoverColor: AppColors.primaryLight,
+        splashColor: AppColors.primaryLight.withValues(alpha: 0.5),
         borderRadius: BorderRadius.circular(radius),
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 6, vertical: 12),
@@ -61,7 +61,10 @@ class CustomRadioListtile<T> extends StatelessWidget {
                   alignment: titleAlignment,
                   child: Text(
                     title ?? "",
-                    style: Styles.regular14.copyWith(color: AppColors.gray71),
+                    style: Styles.regular(
+                      context,
+                      14,
+                    ).copyWith(color: AppColors.gray71),
                   ),
                 ),
               ),
@@ -77,7 +80,7 @@ class CustomRadioListtile<T> extends StatelessWidget {
                   color: Colors.white,
                   border: Border.all(
                     color: isSelected
-                        ? AppColors.primerColor
+                        ? AppColors.primaryLight
                         : AppColors.grayE4,
                     width: 2,
                   ),
@@ -94,7 +97,7 @@ class CustomRadioListtile<T> extends StatelessWidget {
                             height: 8,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              gradient: AppColors.secondGradient,
+                              gradient: AppColors.primaryGradient,
                             ),
                           )
                         : SizedBox(
