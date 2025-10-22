@@ -89,9 +89,7 @@ class CustomButton extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 8),
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
-                    child: CupertinoActivityIndicator(
-                      color: AppColors.white,
-                    ),
+                    child: CupertinoActivityIndicator(color: AppColors.white),
                   ),
                 )
               : icon != null

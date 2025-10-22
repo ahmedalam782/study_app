@@ -26,7 +26,8 @@ class CustomErrorWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              errorMessage ?? LocaleKeys.error_api_failure_unexpected_error.tr(),
+              errorMessage ??
+                  LocaleKeys.error_api_failure_unexpected_error.tr(),
               style: Styles.medium(context, 16),
             ),
             const SizedBox(height: 16),

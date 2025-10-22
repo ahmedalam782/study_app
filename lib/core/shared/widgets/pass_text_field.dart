@@ -99,13 +99,7 @@ class PassTextFormField extends StatefulWidget {
 class _PassTextFormFieldState extends State<PassTextFormField> {
   bool _isPasswordVisible = false;
   FocusNode? _focusNode;
-  List<bool> passwordConditionsState = [
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  List<bool> passwordConditionsState = [false, false, false, false, false];
   final List<String> passwordConditions = [
     "validations.set_password_1_condition",
     "validations.set_password_2_condition",
@@ -209,18 +203,13 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                 ),
             label: widget.labelWidget,
             floatingLabelBehavior:
-                widget.floatingLabelBehavior ??
-                FloatingLabelBehavior.auto,
+                widget.floatingLabelBehavior ?? FloatingLabelBehavior.auto,
             errorBorder:
                 widget.enabledBorder ??
-                customOutLineBorders(
-                  borderColor: AppColors.errorLight,
-                ),
-            disabledBorder:
-                widget.disabledBorder ?? customOutLineBorders(),
+                customOutLineBorders(borderColor: AppColors.errorLight),
+            disabledBorder: widget.disabledBorder ?? customOutLineBorders(),
             border: widget.border ?? customOutLineBorders(),
-            enabledBorder:
-                widget.enabledBorder ?? customOutLineBorders(),
+            enabledBorder: widget.enabledBorder ?? customOutLineBorders(),
             focusedBorder:
                 widget.focusedBorder ??
                 customOutLineBorders(
@@ -259,9 +248,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             AnimatedSwitcher(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
+                              duration: const Duration(milliseconds: 500),
                               switchInCurve: Curves.easeInOut,
                               switchOutCurve: Curves.easeInOut,
                               transitionBuilder: (child, animation) {
@@ -283,10 +270,8 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                               },
                               child: SvgPicture.asset(
                                 passwordConditionsState[index]
-                                    ? AppIcons
-                                          .iconsCheckCircle2
-                                    : AppIcons
-                                          .iconsCloseCircle,
+                                    ? AppIcons.iconsCheckCircle2
+                                    : AppIcons.iconsCloseCircle,
                                 key: ValueKey<bool>(
                                   passwordConditionsState[index],
                                 ),
@@ -297,25 +282,21 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                             const SizedBox(width: 10),
                             SizedBox(
                               child: AnimatedDefaultTextStyle(
-                                duration: const Duration(
-                                  milliseconds: 500,
-                                ),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeInOut,
                                 style: !passwordConditionsState[index]
-                                    ? Styles.regular(context, 14).copyWith(
-                                        color: AppColors.errorLight,
-                                      )
+                                    ? Styles.regular(
+                                        context,
+                                        14,
+                                      ).copyWith(color: AppColors.errorLight)
                                     : Styles.regular(context, 14),
-                                child: Text(
-                                  passwordConditions[index].tr(),
-                                ),
+                                child: Text(passwordConditions[index].tr()),
                               ),
                             ),
                           ],
                         ),
-                        separatorBuilder:
-                            (BuildContext context, int index) =>
-                                SizedBox(height: 6),
+                        separatorBuilder: (BuildContext context, int index) =>
+                            SizedBox(height: 6),
                       ),
                     ),
                     Expanded(
@@ -328,9 +309,7 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             AnimatedSwitcher(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
+                              duration: const Duration(milliseconds: 500),
                               switchInCurve: Curves.easeInOut,
                               switchOutCurve: Curves.easeInOut,
                               transitionBuilder: (child, animation) {
@@ -352,10 +331,8 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                               },
                               child: SvgPicture.asset(
                                 passwordConditionsState[index + 3]
-                                    ? AppIcons
-                                          .iconsCheckCircle2
-                                    : AppIcons
-                                          .iconsCloseCircle,
+                                    ? AppIcons.iconsCheckCircle2
+                                    : AppIcons.iconsCloseCircle,
                                 key: ValueKey<bool>(
                                   passwordConditionsState[index + 3],
                                 ),
@@ -365,32 +342,25 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
                             ),
                             const SizedBox(width: 10),
                             AnimatedDefaultTextStyle(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
+                              duration: const Duration(milliseconds: 500),
                               curve: Curves.easeInOut,
-                              style:
-                                  !passwordConditionsState[index + 3]
-                                  ? Styles.regular(context, 14).copyWith(
-                                      color: AppColors.errorLight,
-                                    )
+                              style: !passwordConditionsState[index + 3]
+                                  ? Styles.regular(
+                                      context,
+                                      14,
+                                    ).copyWith(color: AppColors.errorLight)
                                   : Styles.regular(context, 14),
-                              child: Text(
-                                passwordConditions[index + 3].tr(),
-                              ),
+                              child: Text(passwordConditions[index + 3].tr()),
                             ),
                           ],
                         ),
-                        separatorBuilder:
-                            (BuildContext context, int index) =>
-                                SizedBox(height: 6),
+                        separatorBuilder: (BuildContext context, int index) =>
+                            SizedBox(height: 6),
                       ),
                     ),
                   ],
                 )
-              : const SizedBox(
-                  key: ValueKey('empty_password_conditions'),
-                ),
+              : const SizedBox(key: ValueKey('empty_password_conditions')),
         ),
       ],
     );
@@ -411,14 +381,9 @@ class _PassTextFormFieldState extends State<PassTextFormField> {
           child: child,
         ),
         child: SvgPicture.asset(
-          _isPasswordVisible
-              ? AppIcons.iconsOpenEye
-              : AppIcons.iconsCloseEye,
+          _isPasswordVisible ? AppIcons.iconsOpenEye : AppIcons.iconsCloseEye,
           key: ValueKey<bool>(_isPasswordVisible),
-          colorFilter: ColorFilter.mode(
-            AppColors.grayB6,
-            BlendMode.srcIn,
-          ),
+          colorFilter: ColorFilter.mode(AppColors.grayB6, BlendMode.srcIn),
         ),
       ),
     );

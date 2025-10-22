@@ -42,7 +42,10 @@ class CustomToast {
       description: description != null
           ? Text(
               description!,
-              style: Styles.regular(context, 16).copyWith(color: AppColors.white),
+              style: Styles.regular(
+                context,
+                16,
+              ).copyWith(color: AppColors.white),
             )
           : null,
       autoCloseDuration: const Duration(seconds: 5),

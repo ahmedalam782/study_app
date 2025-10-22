@@ -5,7 +5,6 @@ import '../theme/app_colors.dart';
 import '../theme/styles.dart';
 
 class PopupHelper {
-
   static Future<void> showCustomPopupMenu({
     required BuildContext context,
     required Offset position,
@@ -81,9 +80,10 @@ class PopupHelper {
                     padding: const EdgeInsetsDirectional.only(start: 8),
                     child: Text(
                       items[i].title!,
-                      style: Styles.regular(context, 14).copyWith(
-                        color: items[i].iconColor ?? AppColors.gray52,
-                      ),
+                      style: Styles.regular(
+                        context,
+                        14,
+                      ).copyWith(color: items[i].iconColor ?? AppColors.gray52),
                     ),
                   ),
               ],

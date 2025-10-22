@@ -40,7 +40,10 @@ class CustomCheckListTile extends StatelessWidget {
                 alignment: titleAlignment,
                 child: Text(
                   title ?? "",
-                  style: Styles.regular(context, 16).copyWith(color: AppColors.gray71),
+                  style: Styles.regular(
+                    context,
+                    16,
+                  ).copyWith(color: AppColors.gray71),
                 ),
               ),
             ),

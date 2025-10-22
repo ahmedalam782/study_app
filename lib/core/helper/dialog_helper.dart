@@ -40,7 +40,9 @@ class DialogHelper {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(child: Text(title ?? "", style: Styles.medium(context, 20))),
+                  Flexible(
+                    child: Text(title ?? "", style: Styles.medium(context, 20)),
+                  ),
                   IconButton(
                     onPressed: () => context.canPop() ? context.pop() : null,
                     icon: Icon(
@@ -58,7 +60,10 @@ class DialogHelper {
                   Flexible(
                     child: Text(
                       message ?? "",
-                      style: Styles.light(context, 14).copyWith(color: AppColors.gray71),
+                      style: Styles.light(
+                        context,
+                        14,
+                      ).copyWith(color: AppColors.gray71),
                     ),
                   ),
                   if (child != null) child,
@@ -159,7 +164,10 @@ class DialogHelper {
                   child: Text(
                     message ?? "",
                     textAlign: TextAlign.center,
-                    style: Styles.regular(context, 16).copyWith(color: AppColors.gray71),
+                    style: Styles.regular(
+                      context,
+                      16,
+                    ).copyWith(color: AppColors.gray71),
                   ),
                 ),
               ],
@@ -182,9 +190,10 @@ class DialogHelper {
                                 backGroundColor: mainColor,
                                 isGradient: false,
                                 isLoading: isLoading,
-                                titleStyle: Styles.semiBold(context, 16).copyWith(
-                                  color: AppColors.white,
-                                ),
+                                titleStyle: Styles.semiBold(
+                                  context,
+                                  16,
+                                ).copyWith(color: AppColors.white),
                                 onTap: () async {
                                   buttonSetState(() {
                                     isLoading = true;
@@ -205,9 +214,10 @@ class DialogHelper {
 
                             borderColor: AppColors.gray92,
                             backGroundColor: AppColors.white,
-                            titleStyle: Styles.semiBold(context, 16).copyWith(
-                              color: AppColors.gray71,
-                            ),
+                            titleStyle: Styles.semiBold(
+                              context,
+                              16,
+                            ).copyWith(color: AppColors.gray71),
                             isGradient: false,
                             onTap: () =>
                                 context.canPop() ? context.pop() : null,
@@ -223,9 +233,10 @@ class DialogHelper {
 
                               borderColor: AppColors.gray92,
                               backGroundColor: AppColors.white,
-                              titleStyle: Styles.semiBold(context, 16).copyWith(
-                                color: AppColors.gray71,
-                              ),
+                              titleStyle: Styles.semiBold(
+                                context,
+                                16,
+                              ).copyWith(color: AppColors.gray71),
                               isGradient: false,
                               onTap: () =>
                                   context.canPop() ? context.pop() : null,
@@ -241,9 +252,10 @@ class DialogHelper {
                                   backGroundColor: mainColor,
                                   isGradient: false,
                                   isLoading: isLoading,
-                                  titleStyle: Styles.semiBold(context, 16).copyWith(
-                                    color: AppColors.white,
-                                  ),
+                                  titleStyle: Styles.semiBold(
+                                    context,
+                                    16,
+                                  ).copyWith(color: AppColors.white),
                                   onTap: () async {
                                     buttonSetState(() {
                                       isLoading = true;

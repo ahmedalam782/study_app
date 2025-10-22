@@ -13,13 +13,17 @@ class ApiErrorHandler {
             message: LocaleKeys.error_api_failure_connectionError.tr(),
           );
         case DioExceptionType.cancel:
-          return ApiErrorModel(message: LocaleKeys.error_api_failure_cancelled.tr());
+          return ApiErrorModel(
+            message: LocaleKeys.error_api_failure_cancelled.tr(),
+          );
         case DioExceptionType.connectionTimeout:
           return ApiErrorModel(
             message: LocaleKeys.error_api_failure_connectionTimeout.tr(),
           );
         case DioExceptionType.unknown:
-          return ApiErrorModel(message: LocaleKeys.error_api_failure_unknown.tr());
+          return ApiErrorModel(
+            message: LocaleKeys.error_api_failure_unknown.tr(),
+          );
         case DioExceptionType.receiveTimeout:
           return ApiErrorModel(
             message: LocaleKeys.error_api_failure_receiveTimeout.tr(),
@@ -27,14 +31,18 @@ class ApiErrorHandler {
         case DioExceptionType.badResponse:
           return _handleError(error.response?.data);
         case DioExceptionType.sendTimeout:
-          return ApiErrorModel(message: LocaleKeys.error_api_failure_sendTimeout.tr());
+          return ApiErrorModel(
+            message: LocaleKeys.error_api_failure_sendTimeout.tr(),
+          );
         default:
           return ApiErrorModel(
             message: LocaleKeys.error_api_failure_unexpected_error.tr(),
           );
       }
     } else {
-      return ApiErrorModel(message: LocaleKeys.error_api_failure_unexpected_error.tr());
+      return ApiErrorModel(
+        message: LocaleKeys.error_api_failure_unexpected_error.tr(),
+      );
     }
   }
 }

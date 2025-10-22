@@ -110,7 +110,10 @@ class CustomTextFormField extends StatelessWidget {
         if (title != null && title!.isNotEmpty)
           Text(
             title ?? "",
-            style: Styles.light(context, 14).copyWith(color: AppColors.backgroundDark),
+            style: Styles.light(
+              context,
+              14,
+            ).copyWith(color: AppColors.backgroundDark),
           ),
         TextFormField(
           enabled: !isReadOnly,
@@ -166,7 +169,10 @@ class CustomTextFormField extends StatelessWidget {
                   top: 10,
                 ),
             alignLabelWithHint: true,
-            errorStyle: Styles.regular(context, 12).copyWith(color: AppColors.errorLight),
+            errorStyle: Styles.regular(
+              context,
+              12,
+            ).copyWith(color: AppColors.errorLight),
             focusColor: Colors.black,
             suffixIcon: suffixWidget,
             suffixText: suffixText,
@@ -195,7 +201,9 @@ class CustomTextFormField extends StatelessWidget {
             focusedBorder:
                 focusedBorder ??
                 customOutLineBorders(
-                  borderColor: enableFocusBorder ? AppColors.primaryLight : null,
+                  borderColor: enableFocusBorder
+                      ? AppColors.primaryLight
+                      : null,
                   borderWidth: 1.5,
                 ),
           ),

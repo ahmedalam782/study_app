@@ -63,9 +63,14 @@ class ResendTimerState extends State<ResendTimer> {
           : null,
       child: Text(
         _remainingSeconds > 0
-            ? LocaleKeys.custom_widget_resend.tr(args: [_remainingSeconds.toString()])
+            ? LocaleKeys.custom_widget_resend.tr(
+                args: [_remainingSeconds.toString()],
+              )
             : LocaleKeys.custom_widget_resend_title.tr(),
-        style: Styles.light(context, 14).copyWith(color: AppColors.primaryLight),
+        style: Styles.light(
+          context,
+          14,
+        ).copyWith(color: AppColors.primaryLight),
       ),
     );
   }

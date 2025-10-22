@@ -120,7 +120,7 @@ class _CustomDropButtonState extends State<CustomDropButton> {
                             controller: controller,
                             hintText:
                                 widget.searchHint ??
-                               LocaleKeys.custom_widget_search.tr(),
+                                LocaleKeys.custom_widget_search.tr(),
                             suffixWidget: SvgPicture.asset(
                               AppIcons.iconsSearch,
                               width: 24,

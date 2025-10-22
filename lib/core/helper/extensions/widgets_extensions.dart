@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../phone_helper/phone_length_helper.dart';
 
-
 extension WidgetSliverExtension on Widget {
   Widget toSliver({double? padding}) => padding != null
       ? SliverPadding(

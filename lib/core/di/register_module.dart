@@ -43,4 +43,7 @@ abstract class CoreInjectableModule {
     ]);
     return dio;
   }
+
+  @lazySingleton
+  CancelToken cancelToken() => CancelToken();
 }

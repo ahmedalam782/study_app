@@ -26,9 +26,7 @@ Future<DateTime?> showCustomDatePicker({
       return Theme(
         data: Theme.of(context).copyWith(
           dividerColor: Colors.transparent,
-          dividerTheme: const DividerThemeData(
-            color: Colors.transparent,
-          ),
+          dividerTheme: const DividerThemeData(color: Colors.transparent),
           colorScheme: const ColorScheme.light(
             primary: AppColors.primaryLight,
             onPrimary: AppColors.white,
@@ -147,10 +145,7 @@ class CustomDatePicker extends StatelessWidget {
           : null,
 
       child: Container(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 12,
-          vertical: 13.5,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 13.5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(borderRadius),
           color: AppColors.white,
@@ -175,10 +170,7 @@ class CustomDatePicker extends StatelessWidget {
               AppIcons.iconsCalendar,
               width: 20,
               height: 20,
-              colorFilter: ColorFilter.mode(
-                AppColors.gray52,
-                BlendMode.srcIn,
-              ),
+              colorFilter: ColorFilter.mode(AppColors.gray52, BlendMode.srcIn),
             ),
           ],
         ),

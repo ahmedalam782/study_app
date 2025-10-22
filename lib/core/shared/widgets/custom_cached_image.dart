@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:study_app/core/api/end_points.dart';
 import '../../theme/app_colors.dart';
 import '../../theme/app_icons.dart';
 
@@ -28,9 +27,8 @@ class CustomCachedImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageUrl = imagePath.isEmpty
-        ? ''
-        : "${EndPoints.baseImageUrl}$imagePath";
+    final imageUrl = imagePath.isEmpty ? '' : imagePath;
+    //  EndPoints.baseImageUrl}$imagePath";
 
     if (imagePath.isEmpty) {
       return Container(

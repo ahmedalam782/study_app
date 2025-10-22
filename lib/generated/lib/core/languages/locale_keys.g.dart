@@ -2,14 +2,18 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class  LocaleKeys {
-  static const error_api_failure_connectionError = 'error_api_failure.connectionError';
-  static const error_api_failure_connectionTimeout = 'error_api_failure.connectionTimeout';
+abstract class LocaleKeys {
+  static const error_api_failure_connectionError =
+      'error_api_failure.connectionError';
+  static const error_api_failure_connectionTimeout =
+      'error_api_failure.connectionTimeout';
   static const error_api_failure_cancelled = 'error_api_failure.cancelled';
   static const error_api_failure_unknown = 'error_api_failure.unknown';
-  static const error_api_failure_receiveTimeout = 'error_api_failure.receiveTimeout';
+  static const error_api_failure_receiveTimeout =
+      'error_api_failure.receiveTimeout';
   static const error_api_failure_sendTimeout = 'error_api_failure.sendTimeout';
-  static const error_api_failure_unexpected_error = 'error_api_failure.unexpected_error';
+  static const error_api_failure_unexpected_error =
+      'error_api_failure.unexpected_error';
   static const error_api_failure = 'error_api_failure';
   static const custom_widget_loading = 'custom_widget.loading';
   static const custom_widget_upload_image = 'custom_widget.upload_image';
@@ -17,13 +21,16 @@ abstract class  LocaleKeys {
   static const custom_widget_resend = 'custom_widget.resend';
   static const custom_widget_resend_title = 'custom_widget.resend_title';
   static const custom_widget_try_again = 'custom_widget.try_again';
-  static const custom_widget_unexpected_error = 'custom_widget.unexpected_error';
+  static const custom_widget_unexpected_error =
+      'custom_widget.unexpected_error';
   static const custom_widget_done = 'custom_widget.done';
   static const custom_widget_cancel = 'custom_widget.cancel';
   static const custom_widget_choose_image = 'custom_widget.choose_image';
   static const custom_widget_drag_and_drop = 'custom_widget.drag_and_drop';
-  static const custom_widget_rotateLeftTooltip = 'custom_widget.rotateLeftTooltip';
-  static const custom_widget_rotateRightTooltip = 'custom_widget.rotateRightTooltip';
+  static const custom_widget_rotateLeftTooltip =
+      'custom_widget.rotateLeftTooltip';
+  static const custom_widget_rotateRightTooltip =
+      'custom_widget.rotateRightTooltip';
   static const custom_widget_save = 'custom_widget.save';
   static const custom_widget_search = 'custom_widget.search';
   static const custom_widget_phone_number = 'custom_widget.phone_number';
@@ -48,18 +55,29 @@ abstract class  LocaleKeys {
   static const failures_cache_failure = 'failures.cache_failure';
   static const failures = 'failures';
   static const validations_password_required = 'validations.password_required';
-  static const validations_set_password_1_condition = 'validations.set_password_1_condition';
-  static const validations_set_password_2_condition = 'validations.set_password_2_condition';
-  static const validations_set_password_3_condition = 'validations.set_password_3_condition';
-  static const validations_set_password_4_condition = 'validations.set_password_4_condition';
-  static const validations_set_password_5_condition = 'validations.set_password_5_condition';
-  static const validations_set_password_1_condition_error = 'validations.set_password_1_condition_error';
-  static const validations_set_password_2_condition_error = 'validations.set_password_2_condition_error';
-  static const validations_set_password_3_condition_error = 'validations.set_password_3_condition_error';
-  static const validations_set_password_4_condition_error = 'validations.set_password_4_condition_error';
-  static const validations_set_password_5_condition_error = 'validations.set_password_5_condition_error';
+  static const validations_set_password_1_condition =
+      'validations.set_password_1_condition';
+  static const validations_set_password_2_condition =
+      'validations.set_password_2_condition';
+  static const validations_set_password_3_condition =
+      'validations.set_password_3_condition';
+  static const validations_set_password_4_condition =
+      'validations.set_password_4_condition';
+  static const validations_set_password_5_condition =
+      'validations.set_password_5_condition';
+  static const validations_set_password_1_condition_error =
+      'validations.set_password_1_condition_error';
+  static const validations_set_password_2_condition_error =
+      'validations.set_password_2_condition_error';
+  static const validations_set_password_3_condition_error =
+      'validations.set_password_3_condition_error';
+  static const validations_set_password_4_condition_error =
+      'validations.set_password_4_condition_error';
+  static const validations_set_password_5_condition_error =
+      'validations.set_password_5_condition_error';
   static const validations_confirm_password = 'validations.confirm_password';
-  static const validations_confirm_password_invalid = 'validations.confirm_password_invalid';
+  static const validations_confirm_password_invalid =
+      'validations.confirm_password_invalid';
   static const validations_phone_required = 'validations.phone_required';
   static const validations_phone_invalid = 'validations.phone_invalid';
   static const validations_name_required = 'validations.name_required';
@@ -85,5 +103,4 @@ abstract class  LocaleKeys {
   static const global_delete = 'global.delete';
   static const global_continue = 'global.continue';
   static const global = 'global';
-
 }

@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 import 'package:study_app/core/helper/classes/debouncer.dart';
 import 'package:study_app/core/helper/datetime_helper/date_time_helper.dart';
 import 'package:study_app/core/helper/datetime_helper/date_time_picker.dart';
@@ -15,7 +14,6 @@ import 'package:study_app/core/theme/app_icons.dart';
 import 'package:study_app/core/theme/styles.dart';
 import 'package:study_app/core/utils/constants/app_numbers.dart';
 import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
-
 
 class SearchWidget extends StatefulWidget {
   final Function(String?)? onSearchChanged;
@@ -194,9 +192,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                             widget.dateRange != null
                                 ? "${DateTimeHelper.reformatDate(widget.dateRange!.start.toString())} - ${DateTimeHelper.reformatDate(widget.dateRange!.end.toString())}"
                                 : "global.filter_hint".tr(),
-                            style: Styles.light(context, 14).copyWith(
-                              color: AppColors.gray71,
-                            ),
+                            style: Styles.light(
+                              context,
+                              14,
+                            ).copyWith(color: AppColors.gray71),
                           ),
                           SvgPicture.asset(
                             AppIcons.iconsCalendar,

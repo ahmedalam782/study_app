@@ -19,10 +19,6 @@ class AppInterceptors extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    if (getIt.isRegistered<CancelToken>()) {
-      getIt.unregister<CancelToken>();
-    }
-    getIt.registerSingleton<CancelToken>(CancelToken());
     options.cancelToken = getIt<CancelToken>();
     String? authToken = await fss.read(key: Apikeys.accessToken);
     if (authToken != null && authToken.isNotEmpty) {

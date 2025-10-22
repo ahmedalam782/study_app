@@ -56,8 +56,8 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
 
   void _updateMaxLength() {
     setState(() {
-      _maxLength = PhoneHelper
-          .countryPhoneLengths[_controller.selectedCountryCode];
+      _maxLength =
+          PhoneHelper.countryPhoneLengths[_controller.selectedCountryCode];
     });
   }
 
@@ -73,8 +73,7 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
 
   @override
   Widget build(BuildContext context) {
-    final countryCodes = PhoneHelper.countryPhoneLengths.keys
-        .toList();
+    final countryCodes = PhoneHelper.countryPhoneLengths.keys.toList();
     return Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,7 +82,10 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
         if (widget.showTitle)
           Text(
             LocaleKeys.custom_widget_phone_number.tr(),
-            style: Styles.light(context, 14).copyWith(color: AppColors.backgroundDark),
+            style: Styles.light(
+              context,
+              14,
+            ).copyWith(color: AppColors.backgroundDark),
           ),
 
         Directionality(
@@ -100,8 +102,7 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
             },
             autofocus: false,
             maxLength: _focusNode.hasFocus ? _maxLength : null,
-            validator: (value) =>
-                widget.validator?.call(value, _maxLength),
+            validator: (value) => widget.validator?.call(value, _maxLength),
             focusNode: _focusNode,
             controller: _controller,
             maxLines: 1,
@@ -114,9 +115,10 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
             decoration: InputDecoration(
               hoverColor: Colors.transparent,
               hintText: LocaleKeys.custom_widget_phone_number.tr(),
-              hintStyle: Styles.light(context, 14).copyWith(
-                color: AppColors.gray71,
-              ),
+              hintStyle: Styles.light(
+                context,
+                14,
+              ).copyWith(color: AppColors.gray71),
               contentPadding: REdgeInsetsDirectional.only(
                 start: 12,
                 end: 12,
@@ -124,9 +126,10 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
                 top: 10,
               ),
               alignLabelWithHint: true,
-              errorStyle: Styles.regular(context, 12).copyWith(
-                color: AppColors.errorLight,
-              ),
+              errorStyle: Styles.regular(
+                context,
+                12,
+              ).copyWith(color: AppColors.errorLight),
               focusColor: Colors.black,
 
               suffixIcon: DropdownButton<String>(
@@ -162,9 +165,10 @@ class _CustomPhoneFieldState extends State<CustomPhoneField> {
                       context.locale.languageCode == "ar"
                           ? '$countryName (+$code)'
                           : '+$code $countryName',
-                      style: Styles.light(context, 12).copyWith(
-                        color: AppColors.gray71,
-                      ),
+                      style: Styles.light(
+                        context,
+                        12,
+                      ).copyWith(color: AppColors.gray71),
                     ),
                   );
                 }),
