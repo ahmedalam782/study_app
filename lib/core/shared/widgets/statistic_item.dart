@@ -37,7 +37,7 @@ class StatisticsItem extends StatelessWidget {
             height: 56.w.clamp(46, 62),
             padding: EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: AppColors.originalWhite.withValues(alpha: 0.07),
+              color: AppColors.white.withValues(alpha: 0.07),
               shape: BoxShape.circle,
             ),
             child: Center(
@@ -57,16 +57,18 @@ class StatisticsItem extends StatelessWidget {
                 Flexible(
                   child: Text(
                     value,
-                    style: Styles.bold18.copyWith(
-                      color: AppColors.originalWhite,
-                    ),
+                    style: Styles.bold(
+                      context,
+                      16,
+                    ).copyWith(color: AppColors.white),
                   ),
                 ),
                 Text(
                   title.tr(),
-                  style: Styles.regular12.copyWith(
-                    color: AppColors.originalWhite,
-                  ),
+                  style: Styles.regular(
+                    context,
+                    12,
+                  ).copyWith(color: AppColors.white),
                 ),
               ],
             ),

@@ -4,25 +4,18 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+
 import 'package:study_app/core/helper/classes/debouncer.dart';
+import 'package:study_app/core/helper/datetime_helper/date_time_helper.dart';
+import 'package:study_app/core/helper/datetime_helper/date_time_picker.dart';
 import 'package:study_app/core/shared/widgets/custom_text_field.dart';
+import 'package:study_app/core/theme/app_colors.dart';
 import 'package:study_app/core/theme/app_icons.dart';
 import 'package:study_app/core/theme/styles.dart';
 import 'package:study_app/core/utils/constants/app_numbers.dart';
 import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
-import 'package:va_note/core/common/widgets/custom_button.dart';
-import 'package:va_note/core/common/widgets/custom_drop_button.dart';
-import 'package:va_note/core/common/widgets/custom_text_field.dart';
-import 'package:va_note/core/config/classes/debouncer.dart';
-import 'package:va_note/core/helper/datetime_helper/date_time_helper.dart';
-import 'package:va_note/core/routes/app_router_imports.dart';
-import 'package:va_note/core/theme/app_colors.dart';
-import 'package:va_note/core/theme/app_icons.dart';
-import 'package:va_note/core/theme/styles.dart';
-import 'package:va_note/core/utils/constants/app_numbers.dart';
 
-import '../../config/classes/appointments_status.dart';
-import '../../helper/datetime_helper/date_time_picker.dart';
 
 class SearchWidget extends StatefulWidget {
   final Function(String?)? onSearchChanged;
@@ -133,10 +126,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                     switchInCurve: Curves.easeInOut,
                     switchOutCurve: Curves.easeInOut,
                     transitionBuilder: (child, animation) =>
-                        ScaleTransition(
-                          scale: animation,
-                          child: child,
-                        ),
+                        ScaleTransition(scale: animation, child: child),
                     child: widget.showBackButton
                         ? IconButton(
                             onPressed: widget.onBackButtonTap,
@@ -166,8 +156,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         onFieldSubmitted: (value) =>
                             widget.onSearchChanged?.call(value),
                         textStyle: Styles.light(context, 16),
-                        prefixIcon:
-                            AppIcons.iconsSearch,
+                        prefixIcon: AppIcons.iconsSearch,
                       ),
                     ),
                   ),
@@ -194,11 +183,8 @@ class _SearchWidgetState extends State<SearchWidget> {
                       ),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
-                        color: AppColors.originalWhite,
-                        border: Border.all(
-                          color: AppColors.grayE4,
-                          width: 0.5,
-                        ),
+                        color: AppColors.white,
+                        border: Border.all(color: AppColors.grayE4, width: 0.5),
                       ),
                       child: Row(
                         spacing: 9.88,
@@ -208,12 +194,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                             widget.dateRange != null
                                 ? "${DateTimeHelper.reformatDate(widget.dateRange!.start.toString())} - ${DateTimeHelper.reformatDate(widget.dateRange!.end.toString())}"
                                 : "global.filter_hint".tr(),
-                            style: Styles.light14.copyWith(
+                            style: Styles.light(context, 14).copyWith(
                               color: AppColors.gray71,
                             ),
                           ),
                           SvgPicture.asset(
-                            AppIcons.coreCommonAssetsIconsCalendar,
+                            AppIcons.iconsCalendar,
                             width: 20,
                             height: 20,
                             colorFilter: ColorFilter.mode(
@@ -225,34 +211,10 @@ class _SearchWidgetState extends State<SearchWidget> {
                       ),
                     ),
                   ),
-                  if (widget.showStatusDropButton)
-                    SizedBox(
-                      width: 150,
-                      child: CustomDropButton(
-                        items: getAppointmentsStatusDropdownItems(),
-                        value: AppointmentsStatus.all.id.toString(),
-                        onChanged: widget.onChangedStatus,
-                      ),
-                    ),
-                  CustomButton(
-                    key: ValueKey('AddReviewerButton'),
-                    onTap: widget.onAddReviewer,
-                    title: "global.add_reviewer".tr(),
-                    isExpanded: false,
-                    leading: SvgPicture.asset(
-                      AppIcons.coreCommonAssetsIconsAddUser,
-                      width: 20,
-                      height: 20,
-                      colorFilter: ColorFilter.mode(
-                        AppColors.originalWhite,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
                 ],
               ),
               if (!convertToTabletMode)
-                Text(widget.title, style: Styles.regular20),
+                Text(widget.title, style: Styles.regular(context, 20)),
             ],
           ),
         );
