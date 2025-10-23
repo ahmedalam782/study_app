@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:study_app/core/di/injectable_config.dart';
+import 'package:study_app/core/config/di/injectable_config.dart';
 import 'package:study_app/core/helper/bloc/bloc_observer.dart';
 import 'package:study_app/core/languages/lang.dart';
 import 'app.dart';
@@ -14,6 +14,15 @@ const bool runLocal = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  runApp(
+    EasyLocalization(
+      supportedLocales: [arabicLocale, englishLocale],
+      fallbackLocale: arabicLocale,
+      startLocale: arabicLocale,
+      path: assetsLocalization,
+      child: const VaNote(),
+    ),
+  );
   // Initialize EasyLocalization
   await EasyLocalization.ensureInitialized();
   // Set custom Bloc observer for debugging
@@ -25,13 +34,4 @@ void main() async {
   //==================FOR WEB=====================
   GoRouter.optionURLReflectsImperativeAPIs = true;
   setPathUrlStrategy();
-  runApp(
-    EasyLocalization(
-      supportedLocales: [arabicLocale, englishLocale],
-      fallbackLocale: arabicLocale,
-      startLocale: arabicLocale,
-      path: assetsLocalization,
-      child: const VaNote(),
-    ),
-  );
 }

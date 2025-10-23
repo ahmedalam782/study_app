@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
-import 'package:study_app/core/di/injectable_config.dart';
+import 'package:study_app/core/config/di/injectable_config.dart';
 import 'package:study_app/core/helper/user_helper/user_helper.dart';
 import 'end_points.dart';
 import 'status_code.dart';

@@ -1,7 +1,8 @@
-import 'package:study_app/features/home/data/models/products_model/products_model.dart';
-import 'package:study_app/features/home/data/models/categories_model/category.dart';
+import 'package:study_app/core/config/base_response/result.dart';
+import 'package:study_app/features/home/domain/entities/categories_entity.dart';
+import 'package:study_app/features/home/domain/entities/products_entity.dart';
 
 abstract class HomeRepositories {
-  Future<List<ProductsModel>> fetchProducts();
-  Future<List<Category>> fetchCategories();
+  Future<Result<List<ProductsEntity>>> fetchProducts();
+  Future<Result<List<CategoriesEntity>>> fetchCategories();
 }

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:study_app/features/home/domain/entities/categories_entity.dart';
 part 'category.g.dart';
 
 @JsonSerializable()
@@ -46,5 +47,9 @@ class Category extends Equatable {
   @override
   List<Object?> get props {
     return [id, name, slug, image, createdAt, updatedAt];
+  }
+
+  CategoriesEntity toEntity() {
+    return CategoriesEntity(name: name, imageUrl: image);
   }
 }

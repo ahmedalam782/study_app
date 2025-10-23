@@ -1,5 +1,6 @@
 
-import 'package:study_app/features/home/data/models/categories_model/category.dart';
+import 'package:study_app/core/config/base_response/result.dart';
+import 'package:study_app/features/home/domain/entities/categories_entity.dart';
 import 'package:study_app/features/home/domain/repositories/home_repositories.dart';
 import 'package:injectable/injectable.dart';
 
@@ -9,7 +10,7 @@ class GetCategoriesUseCase {
 
   GetCategoriesUseCase({required this.repository});
 
-  Future<List<Category>> call() async {
+  Future<Result<List<CategoriesEntity>>> call() async {
     return await repository.fetchCategories();
   }
 }

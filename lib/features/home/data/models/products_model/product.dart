@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
+import 'package:study_app/features/home/domain/entities/products_entity.dart';
 
 import 'brand.dart';
 import 'category.dart';
@@ -117,5 +118,13 @@ class Product extends Equatable {
       priceAfterDiscount,
       availableColors,
     ];
+  }
+
+  ProductsEntity toEntity() {
+    return ProductsEntity(
+      name: title ?? '',
+      description: description ?? '',
+      price: price?.toDouble() ?? 0.0,
+    );
   }
 }

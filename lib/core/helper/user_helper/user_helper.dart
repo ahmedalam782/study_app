@@ -2,7 +2,7 @@ import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:study_app/core/api/end_points.dart';
+import 'package:study_app/core/config/api/end_points.dart';
 import 'package:study_app/core/routes/app_router.dart';
 import 'package:study_app/core/routes/routes.dart';
 

@@ -1,5 +1,6 @@
 import 'package:injectable/injectable.dart';
-import 'package:study_app/features/home/data/models/products_model/products_model.dart';
+import 'package:study_app/core/config/base_response/result.dart';
+import 'package:study_app/features/home/domain/entities/products_entity.dart';
 import 'package:study_app/features/home/domain/repositories/home_repositories.dart';
 
 @injectable
@@ -8,7 +9,7 @@ class GetProductsUseCase {
 
   GetProductsUseCase(this.homeRepositories);
 
-  Future<List<ProductsModel>> call() async {
+  Future<Result<List<ProductsEntity>>> call() async {
     return await homeRepositories.fetchProducts();
   }
 }
