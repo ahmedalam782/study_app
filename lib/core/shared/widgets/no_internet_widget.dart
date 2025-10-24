@@ -1,3 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:study_app/core/languages/locale_keys.g.dart';
 import 'package:study_app/core/shared/widgets/custom_button.dart'
     show CustomButton;
 import 'package:study_app/core/theme/app_images.dart';
@@ -27,12 +29,12 @@ class NoInternetWidget extends StatelessWidget {
                 SvgPicture.asset(AppImages.imagesConnectionError, height: 220),
                 const SizedBox(height: 20),
                 Text(
-                  'لا يوجد اتصال بالإنترنت!',
+                  LocaleKeys.global_no_internet.tr(),
                   style: Styles.semiBold(context, 20),
                 ),
                 const SizedBox(height: 5),
                 Text(
-                  'تحقق من اتصالك بالإنترنت وحاول مرة أخرى.',
+                  LocaleKeys.global_check_internet.tr(),
                   textAlign: TextAlign.center,
                   style: Styles.medium(context, 18),
                 ),
@@ -44,7 +46,8 @@ class NoInternetWidget extends StatelessWidget {
                   ),
                   child: CustomButton(
                     onTap: onPressed,
-                    title: 'إعادة المحاولة!',
+                    isGradient: false,
+                    title: LocaleKeys.custom_widget_try_again.tr(),
                   ),
                 ),
                 const SizedBox(height: 30),

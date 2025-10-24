@@ -11,24 +11,18 @@ import '../api/end_points.dart';
 @module
 abstract class CoreInjectableModule {
   @preResolve
-  Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
+  Future<SharedPreferences> prefs() => SharedPreferences.getInstance();
 
   static AndroidOptions _getAndroidOptions() =>
       const AndroidOptions(encryptedSharedPreferences: true);
   @lazySingleton
-  FlutterSecureStorage get secureStorage =>
+  FlutterSecureStorage secureStorage() =>
       FlutterSecureStorage(aOptions: _getAndroidOptions());
 
   @singleton
   Dio dio() {
-    final dio = Dio(
-      BaseOptions(
-        baseUrl: EndPoints.baseUrl,
-        connectTimeout: const Duration(seconds: 45),
-        receiveTimeout: const Duration(seconds: 45),
-      ),
-    );
-    dio.interceptors.add(AppInterceptors(dio: dio, fss: secureStorage));
+    final dio = Dio(BaseOptions(baseUrl: EndPoints.baseUrl));
+    dio.interceptors.add(AppInterceptors(dio: dio, fss: secureStorage()));
     dio.interceptors.addAll([
       if (kDebugMode)
         PrettyDioLogger(
@@ -46,4 +40,5 @@ abstract class CoreInjectableModule {
 
   @lazySingleton
   CancelToken cancelToken() => CancelToken();
+
 }

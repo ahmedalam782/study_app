@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:study_app/core/theme/app_colors.dart';
 import 'package:study_app/core/theme/styles.dart';
 
-class CustomRadioListtile<T> extends StatelessWidget {
+class CustomRadioListTitle<T> extends StatelessWidget {
   final T value;
   final T groupValue;
   final ValueChanged<T?> onChanged;
@@ -11,7 +11,7 @@ class CustomRadioListtile<T> extends StatelessWidget {
   final Color? tileColor;
   final double radius;
   final AlignmentGeometry titleAlignment;
-  const CustomRadioListtile({
+  const CustomRadioListTitle({
     super.key,
     required this.value,
     required this.groupValue,

@@ -27,7 +27,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   // Set custom Bloc observer for debugging
   Bloc.observer = MyBlocObserver();
-  configureDependencies();
+  await configureDependencies();
   await ScreenUtil.ensureScreenSize();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await EasyLocalization.ensureInitialized();

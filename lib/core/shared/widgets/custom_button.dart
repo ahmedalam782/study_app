@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
+import 'package:study_app/core/languages/locale_keys.g.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/styles.dart';

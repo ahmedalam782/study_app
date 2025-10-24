@@ -20,12 +20,12 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<List<Product>> getProducts() async {
+  Future<ProductsModel> getProducts() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<Product>>(
+    final _options = _setStreamType<ProductsModel>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -35,12 +35,10 @@ class _ApiClient implements ApiClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<Product> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ProductsModel _value;
     try {
-      _value = _result.data!
-          .map((dynamic i) => Product.fromJson(i as Map<String, dynamic>))
-          .toList();
+      _value = ProductsModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -49,12 +47,12 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<List<Category>> getCategories() async {
+  Future<CategoriesModel> getCategories() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<List<Category>>(
+    final _options = _setStreamType<CategoriesModel>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -64,12 +62,10 @@ class _ApiClient implements ApiClient {
           )
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<Category> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late CategoriesModel _value;
     try {
-      _value = _result.data!
-          .map((dynamic i) => Category.fromJson(i as Map<String, dynamic>))
-          .toList();
+      _value = CategoriesModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

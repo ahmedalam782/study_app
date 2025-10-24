@@ -10,23 +10,41 @@ part 'product.g.dart';
 
 @JsonSerializable()
 class Product extends Equatable {
+  @JsonKey(name: 'sold')
   final int? sold;
+  @JsonKey(name: 'images')
   final List<String>? images;
+  @JsonKey(name: 'subcategory')
   final List<Subcategory>? subcategory;
+  @JsonKey(name: 'ratingsQuantity')
   final int? ratingsQuantity;
+  @JsonKey(name: '_id')
   final String? id;
+  @JsonKey(name: 'title')
   final String? title;
+  @JsonKey(name: 'slug')
   final String? slug;
+  @JsonKey(name: 'description')
   final String? description;
+  @JsonKey(name: 'quantity')
   final int? quantity;
+  @JsonKey(name: 'price')
   final int? price;
+  @JsonKey(name: 'imageCover')
   final String? imageCover;
+  @JsonKey(name: 'category')
   final Category? category;
+  @JsonKey(name: 'brand')
   final Brand? brand;
+  @JsonKey(name: 'ratingsAverage')
   final double? ratingsAverage;
+  @JsonKey(name: 'createdAt')
   final DateTime? createdAt;
+  @JsonKey(name: 'updatedAt')
   final DateTime? updatedAt;
+  @JsonKey(name: 'priceAfterDiscount')
   final int? priceAfterDiscount;
+  @JsonKey(name: 'availableColors')
   final List<dynamic>? availableColors;
 
   const Product({

@@ -11,6 +11,7 @@ abstract class  LocaleKeys {
   static const error_api_failure_sendTimeout = 'error_api_failure.sendTimeout';
   static const error_api_failure_unexpected_error = 'error_api_failure.unexpected_error';
   static const error_api_failure_badCertificate = 'error_api_failure.badCertificate';
+  static const error_api_failure_expiredToken = 'error_api_failure.expiredToken';
   static const error_api_failure = 'error_api_failure';
   static const custom_widget_loading = 'custom_widget.loading';
   static const custom_widget_upload_image = 'custom_widget.upload_image';
@@ -85,6 +86,8 @@ abstract class  LocaleKeys {
   static const global_edit = 'global.edit';
   static const global_delete = 'global.delete';
   static const global_continue = 'global.continue';
+  static const global_no_internet = 'global.no_internet';
+  static const global_check_internet = 'global.check_internet';
   static const global = 'global';
 
 }

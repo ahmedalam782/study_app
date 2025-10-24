@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
+import 'package:study_app/core/languages/locale_keys.g.dart';
 
 sealed class Failures implements Exception {
   final String errorMessage;

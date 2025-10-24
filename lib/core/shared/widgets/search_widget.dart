@@ -8,12 +8,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:study_app/core/helper/classes/debouncer.dart';
 import 'package:study_app/core/helper/datetime_helper/date_time_helper.dart';
 import 'package:study_app/core/helper/datetime_helper/date_time_picker.dart';
+import 'package:study_app/core/languages/locale_keys.g.dart';
 import 'package:study_app/core/shared/widgets/custom_text_field.dart';
 import 'package:study_app/core/theme/app_colors.dart';
 import 'package:study_app/core/theme/app_icons.dart';
 import 'package:study_app/core/theme/styles.dart';
 import 'package:study_app/core/utils/constants/app_numbers.dart';
-import 'package:study_app/generated/lib/core/languages/locale_keys.g.dart';
 
 class SearchWidget extends StatefulWidget {
   final Function(String?)? onSearchChanged;

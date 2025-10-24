@@ -1,8 +1,8 @@
-enum State { initial, loading, success, error }
+enum StateType { initial, loading, success, error }
 
 abstract class BaseState<T> {
-  final State state;
+  final StateType state;
   final T? data;
-  final String? errorMessage;
-  BaseState({this.state = State.initial, this.data, this.errorMessage});
+  final Exception? exception;
+  BaseState({this.state = StateType.initial, this.data, this.exception});
 }

@@ -25,3 +25,6 @@ class LanguageHelper {
   static const String arabicFontFamily = '';
   static const String englishFontFamily = '';
 }
+
+// Generate Locale Keys
+// flutter pub run easy_localization:generate -S assets/localization -O lib/core/languages -f keys -o locale_keys.g.dart
