@@ -21,7 +21,13 @@ abstract class CoreInjectableModule {
 
   @singleton
   Dio dio() {
-    final dio = Dio(BaseOptions(baseUrl: EndPoints.baseUrl));
+    final dio = Dio(
+      BaseOptions(
+        baseUrl: EndPoints.baseUrl,
+        sendTimeout: Duration(seconds: 45),
+        connectTimeout: Duration(seconds: 45),
+      ),
+    );
     dio.interceptors.add(AppInterceptors(dio: dio, fss: secureStorage()));
     dio.interceptors.addAll([
       if (kDebugMode)
@@ -40,5 +46,4 @@ abstract class CoreInjectableModule {
 
   @lazySingleton
   CancelToken cancelToken() => CancelToken();
-
 }

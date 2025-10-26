@@ -16,6 +16,11 @@ class HomeState extends Equatable {
   }
 
   @override
+  String toString() {
+    return 'HomeState(productHomeState: $productHomeState, categoryHomeState: $categoryHomeState)';
+  }
+
+  @override
   List<Object> get props => [
     productHomeState ?? ProductHomeState(),
     categoryHomeState ?? CategoryHomeState(),

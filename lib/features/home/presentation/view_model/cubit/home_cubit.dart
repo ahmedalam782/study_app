@@ -16,8 +16,8 @@ class HomeCubit extends Cubit<HomeState> {
     : super(HomeState());
 
   Future<void> getAllData() async {
-     getProducts();
-     getCategories();
+    await getProducts();
+    await getCategories();
   }
 
   Future<void> getProducts() async {
