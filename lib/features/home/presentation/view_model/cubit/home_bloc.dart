@@ -6,21 +6,39 @@ import 'package:study_app/core/config/base_state/base_state.dart';
 import 'package:study_app/features/home/domain/use_cases/get_categories_use_case.dart';
 import 'package:study_app/features/home/domain/use_cases/get_products_use_case.dart';
 
-part 'home_state.dart';
+import '../home_events.dart';
+
+part '../home_state.dart';
 
 @injectable
-class HomeCubit extends Cubit<HomeState> {
+class HomeBloc extends Bloc<HomeEvents, HomeState> {
   final GetProductsUseCase getProductsUseCase;
   final GetCategoriesUseCase getCategoriesUseCase;
-  HomeCubit(this.getProductsUseCase, this.getCategoriesUseCase)
-    : super(HomeState());
-
-  Future<void> getAllData() async {
-    await getProducts();
-    await getCategories();
+  HomeBloc(this.getProductsUseCase, this.getCategoriesUseCase)
+    : super(HomeState()) {
+    on<GetProductEvent>((event, emit) async {
+      await _getProducts(event, emit);
+    });
+    on<GetCategoriesEvent>((event, emit) async {
+      await _getCategories(event, emit);
+    });
+    on<GetAllDataEvent>((event, emit) async {
+      await _getAllData(event, emit);
+    });
   }
 
-  Future<void> getProducts() async {
+  Future<void> _getAllData(
+    GetAllDataEvent event,
+    Emitter<HomeState> emit,
+  ) async {
+    await _getProducts(GetProductEvent(), emit);
+    await _getCategories(GetCategoriesEvent(), emit);
+  }
+
+  Future<void> _getProducts(
+    GetProductEvent event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(
       state.copyWith(
         productHomeState: ProductHomeState(state: StateType.loading),
@@ -51,7 +69,10 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  Future<void> getCategories() async {
+  Future<void> _getCategories(
+    GetCategoriesEvent event,
+    Emitter<HomeState> emit,
+  ) async {
     emit(
       state.copyWith(
         categoryHomeState: CategoryHomeState(state: StateType.loading),

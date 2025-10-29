@@ -1,4 +1,4 @@
-part of 'home_cubit.dart';
+part of 'cubit/home_bloc.dart';
 
 class HomeState extends Equatable {
   final ProductHomeState? productHomeState;

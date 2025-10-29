@@ -5,17 +5,19 @@ import 'package:study_app/core/config/di/injectable_config.dart';
 import 'package:study_app/core/errors/handle_errors/handle_errors.dart';
 import 'package:study_app/core/shared/widgets/no_internet_widget.dart';
 import 'package:study_app/core/theme/styles.dart';
-import 'package:study_app/features/home/presentation/view_model/cubit/home_cubit.dart';
+import 'package:study_app/features/home/presentation/view_model/cubit/home_bloc.dart';
+
+import '../../view_model/home_events.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-  final HomeCubit homeCubit = getIt.get<HomeCubit>();
+  final HomeBloc homeBloc = getIt.get<HomeBloc>();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => homeCubit..getAllData(),
+      create: (context) => homeBloc..add(GetAllDataEvent()),
       child: Scaffold(
-        body: BlocBuilder<HomeCubit, HomeState>(
+        body: BlocBuilder<HomeBloc, HomeState>(
           builder: (context, state) {
             final networkCheck =
                 handleNetwork(state.productHomeState?.exception) ??
@@ -25,91 +27,102 @@ class HomePage extends StatelessWidget {
                 (networkCheck != null && networkCheck == true)) {
               return NoInternetWidget(
                 onPressed: () async {
-                  await homeCubit.getAllData();
+                  homeBloc.add(GetAllDataEvent());
                 },
               );
             } else {
-              return CustomScrollView(
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: Text(
-                      'Products List:',
-                      style: Styles.bold(context, 20),
+              return RefreshIndicator(
+                onRefresh: () async {
+                  
+                  homeBloc.add(GetAllDataEvent());
+                },
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Text(
+                        'Products List:',
+                        style: Styles.bold(context, 20),
+                      ),
                     ),
-                  ),
-                  BlocBuilder<HomeCubit, HomeState>(
-                    builder: (context, state) {
-                      final networkCheck = handleNetwork(
-                        state.productHomeState?.exception,
-                      );
-                       if (state.productHomeState?.state == StateType.error &&
-                          (networkCheck == null || networkCheck == false)) {
-                        return SliverToBoxAdapter(
-                          child: Text(
-                            handleError(state.productHomeState?.exception)!,
-                            style: Styles.medium(context, 14),
-                          ),
+                    BlocBuilder<HomeBloc, HomeState>(
+                      builder: (context, state) {
+                        final networkCheck = handleNetwork(
+                          state.productHomeState?.exception,
                         );
-                      }else if (state.productHomeState?.state ==
-                          StateType.success) {
-                        return SliverList.separated(
-                          itemBuilder: (context, index) => Container(
-                            padding: const EdgeInsets.all(16),
+                        if (state.productHomeState?.state == StateType.error &&
+                            (networkCheck == null || networkCheck == false)) {
+                          return SliverToBoxAdapter(
                             child: Text(
-                              state.productHomeState?.data?[index].name ?? '',
-                              style: Styles.medium(context, 16),
+                              handleError(state.productHomeState?.exception)!,
+                              style: Styles.medium(context, 14),
                             ),
-                          ),
-                          separatorBuilder: (context, index) => const Divider(),
-                          itemCount: state.productHomeState?.data?.length ?? 0,
-                        );
-                      } else {
-                        return const SliverToBoxAdapter(
-                          child: Center(child: CircularProgressIndicator()),
-                        );
-                      }
-                    },
-                  ),
-                  SliverToBoxAdapter(
-                    child: Text(
-                      'Categories List:',
-                      style: Styles.bold(context, 20),
+                          );
+                        } else if (state.productHomeState?.state ==
+                            StateType.success) {
+                          return SliverList.separated(
+                            itemBuilder: (context, index) => Container(
+                              padding: const EdgeInsets.all(16),
+                              child: Text(
+                                state.productHomeState?.data?[index].name ?? '',
+                                style: Styles.medium(context, 16),
+                              ),
+                            ),
+                            separatorBuilder: (context, index) =>
+                                const Divider(),
+                            itemCount:
+                                state.productHomeState?.data?.length ?? 0,
+                          );
+                        } else {
+                          return const SliverToBoxAdapter(
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+                      },
                     ),
-                  ),
-                  BlocBuilder<HomeCubit, HomeState>(
-                    builder: (context, state) {
-                      final networkCheck = handleNetwork(
-                        state.categoryHomeState?.exception,
-                      );
-                       if (state.categoryHomeState?.state == StateType.error &&
-                          (networkCheck == null || networkCheck == false)) {
-                        return SliverToBoxAdapter(
-                          child: Text(
-                            handleError(state.categoryHomeState?.exception)!,
-                            style: Styles.medium(context, 14),
-                          ),
+                    SliverToBoxAdapter(
+                      child: Text(
+                        'Categories List:',
+                        style: Styles.bold(context, 20),
+                      ),
+                    ),
+                    BlocBuilder<HomeBloc, HomeState>(
+                      builder: (context, state) {
+                        final networkCheck = handleNetwork(
+                          state.categoryHomeState?.exception,
                         );
-                      } else if (state.categoryHomeState?.state ==
-                          StateType.success) {
-                        return SliverList.separated(
-                          itemBuilder: (context, index) => Container(
-                            padding: const EdgeInsets.all(16),
+                        if (state.categoryHomeState?.state == StateType.error &&
+                            (networkCheck == null || networkCheck == false)) {
+                          return SliverToBoxAdapter(
                             child: Text(
-                              state.categoryHomeState?.data?[index].name ?? '',
-                              style: Styles.medium(context, 16),
+                              handleError(state.categoryHomeState?.exception)!,
+                              style: Styles.medium(context, 14),
                             ),
-                          ),
-                          separatorBuilder: (context, index) => const Divider(),
-                          itemCount: state.categoryHomeState?.data?.length ?? 0,
-                        );
-                      } else {
-                        return const SliverToBoxAdapter(
-                          child: Center(child: CircularProgressIndicator()),
-                        );
-                      }
-                    },
-                  ),
-                ],
+                          );
+                        } else if (state.categoryHomeState?.state ==
+                            StateType.success) {
+                          return SliverList.separated(
+                            itemBuilder: (context, index) => Container(
+                              padding: const EdgeInsets.all(16),
+                              child: Text(
+                                state.categoryHomeState?.data?[index].name ??
+                                    '',
+                                style: Styles.medium(context, 16),
+                              ),
+                            ),
+                            separatorBuilder: (context, index) =>
+                                const Divider(),
+                            itemCount:
+                                state.categoryHomeState?.data?.length ?? 0,
+                          );
+                        } else {
+                          return const SliverToBoxAdapter(
+                            child: Center(child: CircularProgressIndicator()),
+                          );
+                        }
+                      },
+                    ),
+                  ],
+                ),
               );
             }
           },

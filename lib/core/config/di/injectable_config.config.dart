@@ -28,8 +28,8 @@ import '../../../features/home/domain/use_cases/get_categories_use_case.dart'
     as _i11;
 import '../../../features/home/domain/use_cases/get_products_use_case.dart'
     as _i631;
-import '../../../features/home/presentation/view_model/cubit/home_cubit.dart'
-    as _i131;
+import '../../../features/home/presentation/view_model/cubit/home_bloc.dart'
+    as _i29;
 import '../../helper/user_helper/user_helper.dart' as _i23;
 import '../api/app_interceptor.dart' as _i449;
 import 'register_module.dart' as _i291;
@@ -80,8 +80,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i631.GetProductsUseCase>(
       () => _i631.GetProductsUseCase(gh<_i184.HomeRepositories>()),
     );
-    gh.factory<_i131.HomeCubit>(
-      () => _i131.HomeCubit(
+    gh.factory<_i29.HomeBloc>(
+      () => _i29.HomeBloc(
         gh<_i631.GetProductsUseCase>(),
         gh<_i11.GetCategoriesUseCase>(),
       ),
