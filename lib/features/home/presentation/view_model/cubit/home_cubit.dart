@@ -11,34 +11,31 @@ import '../home_events.dart';
 part '../home_state.dart';
 
 @injectable
-class HomeBloc extends Bloc<HomeEvents, HomeState> {
+class HomeCubit extends Cubit<HomeState> {
   final GetProductsUseCase getProductsUseCase;
   final GetCategoriesUseCase getCategoriesUseCase;
-  HomeBloc(this.getProductsUseCase, this.getCategoriesUseCase)
-    : super(HomeState()) {
-    on<GetProductEvent>((event, emit) async {
-      await _getProducts(event, emit);
-    });
-    on<GetCategoriesEvent>((event, emit) async {
-      await _getCategories(event, emit);
-    });
-    on<GetAllDataEvent>((event, emit) async {
-      await _getAllData(event, emit);
-    });
+  HomeCubit(this.getProductsUseCase, this.getCategoriesUseCase)
+    : super(HomeState());
+  void doIntent(HomeEvents event) {
+    switch (event) {
+      case GetProductEvent():
+        _getProducts();
+      case GetCategoriesEvent():
+        _getCategories();
+      case GetAllDataEvent():
+        _getAllData();
+    }
   }
 
-  Future<void> _getAllData(
-    GetAllDataEvent event,
-    Emitter<HomeState> emit,
-  ) async {
-    await _getProducts(GetProductEvent(), emit);
-    await _getCategories(GetCategoriesEvent(), emit);
+  @override
+  void emit(HomeState state) => isClosed ? null : super.emit(state);
+
+  // Removed incorrect override of emit method.
+  Future<void> _getAllData() async {
+    await Future.wait([_getProducts(), _getCategories()]);
   }
 
-  Future<void> _getProducts(
-    GetProductEvent event,
-    Emitter<HomeState> emit,
-  ) async {
+  Future<void> _getProducts() async {
     emit(
       state.copyWith(
         productHomeState: ProductHomeState(state: StateType.loading),
@@ -69,10 +66,7 @@ class HomeBloc extends Bloc<HomeEvents, HomeState> {
     }
   }
 
-  Future<void> _getCategories(
-    GetCategoriesEvent event,
-    Emitter<HomeState> emit,
-  ) async {
+  Future<void> _getCategories() async {
     emit(
       state.copyWith(
         categoryHomeState: CategoryHomeState(state: StateType.loading),

@@ -5,36 +5,33 @@ import 'package:study_app/core/config/di/injectable_config.dart';
 import 'package:study_app/core/errors/handle_errors/handle_errors.dart';
 import 'package:study_app/core/shared/widgets/no_internet_widget.dart';
 import 'package:study_app/core/theme/styles.dart';
-import 'package:study_app/features/home/presentation/view_model/cubit/home_bloc.dart';
+import 'package:study_app/features/home/presentation/view_model/cubit/home_cubit.dart';
 
 import '../../view_model/home_events.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
-  final HomeBloc homeBloc = getIt.get<HomeBloc>();
+  final HomeCubit homeCubit = getIt.get<HomeCubit>();
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => homeBloc..add(GetAllDataEvent()),
+      create: (context) => homeCubit..doIntent(GetAllDataEvent()),
       child: Scaffold(
-        body: BlocBuilder<HomeBloc, HomeState>(
+        body: BlocBuilder<HomeCubit, HomeState>(
           builder: (context, state) {
-            final networkCheck =
-                handleNetwork(state.productHomeState?.exception) ??
-                handleNetwork(state.categoryHomeState?.exception);
-            if (state.productHomeState == null ||
-                state.categoryHomeState == null ||
-                (networkCheck != null && networkCheck == true)) {
+            final networkCheck = handleNetwork(
+              state.productHomeState?.exception,
+            );
+            if ((networkCheck != null && networkCheck == true)) {
               return NoInternetWidget(
                 onPressed: () async {
-                  homeBloc.add(GetAllDataEvent());
+                  homeCubit.doIntent(GetAllDataEvent());
                 },
               );
             } else {
               return RefreshIndicator(
                 onRefresh: () async {
-                  
-                  homeBloc.add(GetAllDataEvent());
+                  homeCubit.doIntent(GetAllDataEvent());
                 },
                 child: CustomScrollView(
                   slivers: [
@@ -44,7 +41,7 @@ class HomePage extends StatelessWidget {
                         style: Styles.bold(context, 20),
                       ),
                     ),
-                    BlocBuilder<HomeBloc, HomeState>(
+                    BlocBuilder<HomeCubit, HomeState>(
                       builder: (context, state) {
                         final networkCheck = handleNetwork(
                           state.productHomeState?.exception,
@@ -85,7 +82,7 @@ class HomePage extends StatelessWidget {
                         style: Styles.bold(context, 20),
                       ),
                     ),
-                    BlocBuilder<HomeBloc, HomeState>(
+                    BlocBuilder<HomeCubit, HomeState>(
                       builder: (context, state) {
                         final networkCheck = handleNetwork(
                           state.categoryHomeState?.exception,
