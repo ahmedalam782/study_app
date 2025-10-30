@@ -16,8 +16,6 @@ class AppTheme {
       onPrimary: AppColors.onPrimaryLight,
       secondary: AppColors.secondaryLight,
       onSecondary: AppColors.onSecondaryLight,
-      background: AppColors.backgroundLight,
-      onBackground: AppColors.onBackgroundLight,
       surface: AppColors.surfaceLight,
       onSurface: AppColors.onSurfaceLight,
       error: AppColors.errorLight,
