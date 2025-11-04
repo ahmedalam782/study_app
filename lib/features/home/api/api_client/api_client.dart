@@ -16,7 +16,5 @@ abstract class ApiClient {
   Future<ProductsModel> getProducts();
 
   @GET(EndPoints.categories)
-  Future<CategoriesModel> getCategories(
-    
-  );
+  Future<CategoriesModel> getCategories();
 }

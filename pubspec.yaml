@@ -53,14 +53,15 @@ dependencies:
   shimmer: ^3.0.0
   toastification: ^3.0.3
 dev_dependencies:
+  mockito: ^5.5.1
   build_runner: ^2.10.0
   flutter_lints: ^5.0.0
-  # flutter_test:
-  #   sdk: flutter
+  flutter_test:
+    sdk: flutter
   injectable_generator: ^2.9.0
   json_serializable: ^6.11.1
   retrofit_generator: ^10.0.6
-  test: ^1.26.3
+  # test: ^1.26.3
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.

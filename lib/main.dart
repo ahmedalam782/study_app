@@ -13,7 +13,6 @@ import 'core/routes/url_strategy.dart';
 const bool runLocal = false;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   runApp(
     EasyLocalization(
       supportedLocales: [arabicLocale, englishLocale],
